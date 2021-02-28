@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float jumpPower;
-    [SerializeField] private float maxSpeed;
+    [SerializeField]private float verticalSpeed;
+    [SerializeField]private float horizontalSpeed;
     public float gravity;
 
     private Rigidbody2D _rigidbody;
@@ -17,10 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Sprite jump;
     [SerializeField] private Sprite hold;
     [SerializeField] private Sprite idle;
-
-    private float _horizontalSpeed;
-    private float _verticalSpeed;
-
+    
     private bool _isCollideWall;
     private PlayerState _currentState;
     private Direction _currentDirection;
@@ -89,19 +81,19 @@ public class PlayerMove : MonoBehaviour
         CurrentState = PlayerState.HOLD;
         CurrentDirection = Direction.LEFT;
 
-        _horizontalSpeed = 4 * Mathf.Sqrt(-gravity / 2 / 4);
-        _verticalSpeed = Mathf.Sqrt(-2 * gravity * jumpPower) / 2;
+        CurrentState = PlayerState.IDLE;
     }
 
     void Update()
     {
         switch (CurrentState)
         {
+            case PlayerState.IDLE:
             case PlayerState.HOLD:
                 if (Input.GetMouseButtonDown(0))
                 {
                     CurrentState = PlayerState.JUMP;
-                    _rigidbody.velocity = new Vector2(_verticalSpeed * (float) CurrentDirection, _horizontalSpeed);
+                    _rigidbody.velocity = new Vector2(verticalSpeed * (float) CurrentDirection, horizontalSpeed);
                 }
 
                 break;
