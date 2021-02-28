@@ -2,8 +2,8 @@
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField]private float verticalSpeed;
-    [SerializeField]private float horizontalSpeed;
+    [SerializeField] private float verticalSpeed;
+    [SerializeField] private float horizontalSpeed;
     public float gravity;
 
     private Rigidbody2D _rigidbody;
@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Sprite jump;
     [SerializeField] private Sprite hold;
     [SerializeField] private Sprite idle;
-    
+
     private bool _isCollideWall;
     private PlayerState _currentState;
     private Direction _currentDirection;
@@ -51,7 +51,6 @@ public class PlayerMove : MonoBehaviour
                     break;
             }
         }
-        
     }
 
     private Direction CurrentDirection
@@ -78,10 +77,8 @@ public class PlayerMove : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
 
-        CurrentState = PlayerState.HOLD;
-        CurrentDirection = Direction.LEFT;
-
         CurrentState = PlayerState.IDLE;
+        CurrentDirection = Direction.LEFT;
     }
 
     void Update()
@@ -90,7 +87,7 @@ public class PlayerMove : MonoBehaviour
         {
             case PlayerState.IDLE:
             case PlayerState.HOLD:
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
                     CurrentState = PlayerState.JUMP;
                     _rigidbody.velocity = new Vector2(verticalSpeed * (float) CurrentDirection, horizontalSpeed);
@@ -102,8 +99,12 @@ public class PlayerMove : MonoBehaviour
                 if (_isCollideWall)
                 {
                     CurrentState = PlayerState.HOLD;
+
                     CurrentDirection = CurrentDirection == Direction.LEFT ? Direction.RIGHT : Direction.LEFT;
-                    _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+
+                    _rigidbody.velocity = new Vector2(0, 0);
+                    _rigidbody.position += Vector2.right * ((int) CurrentDirection * .1f * transform.localScale);
+                    
                     _isCollideWall = false;
                 }
 
@@ -113,7 +114,7 @@ public class PlayerMove : MonoBehaviour
         _rigidbody.velocity += Vector2.up * (gravity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (CurrentState != PlayerState.JUMP)
         {
@@ -124,13 +125,5 @@ public class PlayerMove : MonoBehaviour
         {
             _isCollideWall = true;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            _isCollideWall = false;
-        }
-    }
+    }   
 }

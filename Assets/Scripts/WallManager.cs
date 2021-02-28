@@ -6,6 +6,7 @@ public class WallManager : MonoBehaviour
     [SerializeField] private int count = 11;
     [SerializeField] private GameObject player;
 
+    [SerializeField] private float width;
 
     private GameObject[] _leftWalls;
     private GameObject[] _rightWalls;
@@ -27,16 +28,16 @@ public class WallManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            GameObject wall = Instantiate(wallPrefab);
-            wall.transform.position = new Vector3(2, (count / 2.0f) - (i * _scale.y) - .5f, 0);
             _positions[i] = (count / 2.0f * _scale.y) - (i * _scale.y) - .5f;
+            GameObject wall = Instantiate(wallPrefab);
+            wall.transform.position = new Vector3(width / 2, (count / 2.0f) - (i * _scale.y) - .5f, 0);
             _rightWalls[i] = wall;
         }
 
         for (int i = 0; i < count; i++)
         {
             GameObject wall = Instantiate(wallPrefab);
-            wall.transform.position = new Vector3(-2, count / 2.0f - (i * _scale.y) - .5f, 0);
+            wall.transform.position = new Vector3(width / -2, count / 2.0f - (i * _scale.y) - .5f, 0);
             _leftWalls[i] = wall;
         }
     }
