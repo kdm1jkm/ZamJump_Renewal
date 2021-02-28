@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: b936073a3af1434418d50cf663cf2ec6
+guid: 9b0a6aeb60212b04bb8ac4688d537e0d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2311659948842064771
-    second: Player_0
+      213: 5927504672831713662
+    second: MinchoMonster
   - first:
-      213: 7364682651488144517
-    second: Player_1
+      213: 7788020138054186290
+    second: Knife
   - first:
-      213: -6287787046888575383
-    second: Player_2
+      213: -5833093732298027716
+    second: Heart
+  - first:
+      213: 2818158085852216276
+    second: Rock
+  - first:
+      213: 6747129560220156973
+    second: Poo
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -54,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 45
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,64 +126,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_0
+      name: MinchoMonster
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 27
-        height: 45
+        width: 34
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7465c336855befd0800000000000000
-      internalID: -2311659948842064771
+      spriteID: e713a9c381ab24250800000000000000
+      internalID: 5927504672831713662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_1
+      name: Knife
       rect:
         serializedVersion: 2
-        x: 34
-        y: 0
-        width: 35
-        height: 45
+        x: 47
+        y: 1
+        width: 7
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58cce6d0adb943660800000000000000
-      internalID: 7364682651488144517
+      spriteID: 235fe488d0b941c60800000000000000
+      internalID: 7788020138054186290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_2
+      name: Heart
       rect:
         serializedVersion: 2
-        x: 69
-        y: 0
-        width: 33
-        height: 45
+        x: 76
+        y: 5
+        width: 18
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e67e6befa4db8a0800000000000000
-      internalID: -6287787046888575383
+      spriteID: c3d81d0d720bc0fa0800000000000000
+      internalID: -5833093732298027716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbbd1c09db1c1720800000000000000
+      internalID: 2818158085852216276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poo
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 5
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24c572569e92ad50800000000000000
+      internalID: 6747129560220156973
       vertices: []
       indices: 
       edges: []

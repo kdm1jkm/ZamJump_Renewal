@@ -83,6 +83,15 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (CurrentState == PlayerState.IDLE)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+        else
+        {
+            _rigidbody.velocity += Vector2.up * (gravity * Time.deltaTime);
+        }
+
         switch (CurrentState)
         {
             case PlayerState.IDLE:
@@ -102,16 +111,14 @@ public class PlayerMove : MonoBehaviour
 
                     CurrentDirection = CurrentDirection == Direction.LEFT ? Direction.RIGHT : Direction.LEFT;
 
-                    _rigidbody.velocity = new Vector2(0, 0);
+                    _rigidbody.velocity = Vector2.zero;
                     _rigidbody.position += Vector2.right * ((int) CurrentDirection * .1f * transform.localScale);
-                    
+
                     _isCollideWall = false;
                 }
 
                 break;
         }
-
-        _rigidbody.velocity += Vector2.up * (gravity * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -125,5 +132,5 @@ public class PlayerMove : MonoBehaviour
         {
             _isCollideWall = true;
         }
-    }   
+    }
 }
